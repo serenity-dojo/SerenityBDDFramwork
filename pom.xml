@@ -6,10 +6,8 @@
   
   
 	<properties>
-		<serenity.version>2.0.81</serenity.version>
-		<serenity.maven.version>2.0.81</serenity.maven.version>
+		<serenity.version>3.6.21</serenity.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<serenity.cucumber.version>1.9.45</serenity.cucumber.version>
 		<encoding>UTF-8</encoding>
 	</properties>
 
@@ -37,12 +35,11 @@
 			<scope>test</scope>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber -->
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-cucumber</artifactId>
-			<version>${serenity.cucumber.version}</version>
+			<version>${serenity.version}</version>
 		</dependency>
 
 
@@ -95,21 +92,17 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.1</version>
+				<version>3.0.0-M5</version>
 				<configuration>
 					<skip>true</skip>
 				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.22.1</version>
+				<version>3.0.0-M5</version>
 				<configuration>
 					<includes>
-
-						<!-- <include>**/testcases/Parameterization.java</include> -->
-						<include>**/runner/**/*.java</include>
-						<include>**/runner/*.java</include>
-
+						<include>**/runners/*.java</include>
 					</includes>
 
 					<parallel>classes</parallel>
@@ -137,7 +130,7 @@
 			<plugin>
 				<groupId>net.serenity-bdd.maven.plugins</groupId>
 				<artifactId>serenity-maven-plugin</artifactId>
-				<version>${serenity.maven.version}</version>
+				<version>${serenity.version}</version>
 				<executions>
 					<execution>
 						<id>serenity-reports</id>

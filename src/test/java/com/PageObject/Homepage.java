@@ -1,55 +1,30 @@
 package com.PageObject;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
-import org.openqa.selenium.WebDriver;
-
-import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
-import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.By;
 
-public class Homepage extends PageObject{
+// TODO: Add the correct URL
+//@DefaultUrl("https://your.site.url.com/")
+@DefaultUrl("https://www.carwale.com/")
+public class Homepage extends PageObject {
 
-	
-	
+    private static final By MENU_FACTURES = By.xpath("//span[@data-iv-role='label' and text()='Menu Factures']/ancestor::a");
 
-	 WebDriver driver;
-	 
-    public Homepage(WebDriver driver) {
-		    this.driver=driver;
-} 
-	@Step
-	public  void i_click_on_My_invoices() {
-		
-		 getDriver().manage().timeouts().implicitlyWait(120,TimeUnit.SECONDS);
-		 getDriver().findElement(By.xpath(("//span[@data-iv-role='label' and text()='Menu Factures']/ancestor::a"))).click();	
-		
-		
-		
-		
-		// xpath du bouton ("Menu Fournisseurs")
-		//driver.findElement(By.xpath("//span[@data-iv-role='label' and text()='Menu Fournisseurs']/ancestor::a")).click();
-		
-		
-		}
-	
-	
-	
-	
-	
-	
-	@Step
-	public  void i_select_the_first_invoice() {
-		
-		getDriver().findElement(By.cssSelector(getTitle()));
-		
-	}
-	@Step
-	public  void i_am_redirected_to_the_contents_of_the_invoice() {
-		// TODO Auto-generated method stub
-		
-	}
+    public void selectFirstInvoice() {
+        withTimeoutOf(Duration.ofSeconds(120)).waitFor(MENU_FACTURES).click();
+    }
 
+    public void i_select_the_first_invoice() {
+        // TODO: Locate and click on the first invoice
+
+    }
+
+    public void navigateToMyInvoices() {
+        // TODO: Locate and click on the "My invoices" menu entry or tab
+    }
 }
 	
 

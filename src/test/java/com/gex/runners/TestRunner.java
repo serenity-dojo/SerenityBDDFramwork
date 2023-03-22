@@ -1,20 +1,14 @@
 package com.gex.runners;
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
-import cucumber.api.CucumberOptions;
-import net.serenitybdd.junit.runners.SerenityRunner;
-
-@RunWith(SerenityRunner.class)
+@RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-
-		plugin= {"pretty","html:target/htmlreports"},
-        features = "src/test/resources/features/gex.feature",
-        glue = ("com/gex/steps/steps")
-	    
-                 
+		plugin= {"pretty"},
+        features = "src/test/resources/features",
+        glue = ("com.gex.steps")
 )
-
-
 public class TestRunner {}
 
 

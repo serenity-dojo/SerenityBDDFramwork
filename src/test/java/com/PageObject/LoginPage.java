@@ -10,13 +10,6 @@ import net.serenitybdd.core.pages.PageObject;
 
 public class LoginPage extends PageObject{
 	
-	
-	//WebDriver driver=new ChromeDriver();
-	
-	// public LoginPage(WebDriver driver) {
-		   //this.driver=driver;
-	 //}
-	
 	public  void IopenGex() {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Soraya\\eclipse-workspace\\SerinityBDDFramwork\\src\\test\\resources\\drivers\\chromedriver.exe");			
 		WebDriver driver=new ChromeDriver();
